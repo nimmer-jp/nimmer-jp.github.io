@@ -7,7 +7,7 @@ services:
     volumes:
       - ./docs:/app/build
     restart: 'no'
-  devEnv:
+  devenv:
     container_name: nimmer-jp_website-dev_env
     build: ./src/devs
     volumes:
