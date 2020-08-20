@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "jsxFactory": "h",
+    "module": "es6",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "WebWorker",
+      "WebWorker.ImportScripts",
+      "ES5",
+      "ES6",
+      "ESNext"
+    ]
+  }
+}

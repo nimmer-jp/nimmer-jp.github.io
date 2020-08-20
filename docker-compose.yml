@@ -1,0 +1,15 @@
+version: '3.2'
+
+services:
+  builder:
+    container_name: nimmer-jp_website-builder
+    build: ./src/pubs
+    volumes:
+      - ./docs:/app/build
+    restart: 'no'
+  devEnv:
+    container_name: nimmer-jp_website-dev_env
+    build: ./src/devs
+    volumes:
+      - ./src/pubs/src:/app/src
+    restart: always
