@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin').CleanWebpackPlugin;
 const minifyCss = require('mini-css-extract-plugin').loader;
 
 const is_prod =
@@ -14,11 +15,11 @@ module.exports = {
     main: path.resolve(__dirname, 'src/index.tsx'),
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js',
-    chunkFilename: '[id].chunk.js',
-    sourceMapFilename: '[file].map',
-    publicPath: '/assets/',
+    path: path.resolve(__dirname, 'build'),
+    filename: 'assets/js/[name].bundle.js',
+    chunkFilename: 'assets/js/[id].chunk.js',
+    sourceMapFilename: 'assets/[ext]/[file].map',
+    publicPath: '/',
     libraryTarget: 'umd',
   },
   module: {
@@ -69,30 +70,30 @@ module.exports = {
   target: 'web',
   stats: 'errors-only',
   devServer: {
+    watchContentBase: true,
     contentBase: path.join(__dirname, 'public'),
+    inline: true,
+    progress: true,
     compress: true,
     historyApiFallback: true,
     hot: true,
-    noInfo: false,
+    hotOnly: true,
   },
   optimization: {
-    minimize: true,
-    minimizer: [
-      new TerserPlugin({ test: /\.js(\?.*)?$/i, sourceMap: !is_prod }),
-    ],
-    runtimeChunk: {
-      name: (entry) => `runtime-${entry.name}`,
-    },
+    minimize: is_prod,
+    minimizer: [new TerserPlugin({ test: /\.js(\?.*)?$/i, sourceMap: false })],
   },
   plugins: [
-    new CopyPlugin({ patterns: [path.join(__dirname, 'public')] }),
+    new CopyPlugin({
+      patterns: [{ from: path.join(__dirname, 'public') }],
+    }),
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
       DEBUG: false,
     }),
     new HtmlPlugin({
       inlineSource: '.js$',
-      template: path.join(__dirname, 'public/index.html'),
+      template: path.join(__dirname, 'src/index.html'),
       inject: true,
       minify: is_prod
         ? {
@@ -109,6 +110,7 @@ module.exports = {
           }
         : undefined,
     }),
+    new CleanWebpackPlugin(),
     !is_prod && new webpack.HotModuleReplacementPlugin(),
-  ],
+  ].filter((it) => it),
 };
