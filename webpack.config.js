@@ -4,7 +4,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin').CleanWebpackPlugin;
-const minifyCss = require('mini-css-extract-plugin').loader;
+//const minifyCss = require('mini-css-extract-plugin').loader;
 
 const is_prod =
   process.argv.includes('--production') || process.argv.includes('-p');
@@ -27,7 +27,7 @@ module.exports = {
       { test: /\.tsx?$/, use: 'ts-loader' },
       {
         test: /\.s[ac]ss$/,
-        use: ['style-loader', minifyCss, 'css-loader', 'sass-loader'],
+        use: ['style-loader', /*minifyCss,*/ 'css-loader', 'sass-loader'],
       },
       { test: /\.html$/, use: 'html-loader' },
       {
@@ -78,6 +78,8 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
     hotOnly: true,
+    host: '0.0.0.0',
+    port: 9000,
   },
   optimization: {
     minimize: is_prod,

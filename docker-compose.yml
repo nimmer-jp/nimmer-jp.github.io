@@ -20,5 +20,5 @@ services:
       - ./src:/app/src
       - ./public:/app/public
     ports:
-      - 8888:8080
+      - 9000:9000
     restart: always
