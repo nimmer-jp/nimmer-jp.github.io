@@ -1,0 +1,68 @@
+footer {
+  background: #000a12;
+  position: absolute;
+  width: calc(100% - 1rem);
+  left: 0;
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  column-gap: 0.8rem;
+}
+
+footer .logo {
+  display: grid;
+}
+
+footer .logo > img {
+  margin: auto;
+}
+
+footer .logo > p {
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+footer .bottom {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  margin: 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+footer .groups {
+  display: grid;
+  font-size: 0.8rem;
+}
+
+footer .groups .item {
+  /*border-bottom: solid 1px #ffeb3b;*/
+  height: fit-content;
+}
+
+footer .groups .item::before {
+  content: attr(data-title);
+  font-size: 1.2rem;
+  font-weight: bolder;
+  margin-right: 0.4rem;
+}
+
+footer .groups .item.media {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+footer .groups .item.media p {
+  margin: auto 0;
+}
+
+footer .groups .item.media p:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+footer .groups .item.media p:not(:last-child)::after {
+  content: '/';
+  margin-left: 0.5rem;
+}

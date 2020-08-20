@@ -1,0 +1,37 @@
+header {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 1.2rem;
+}
+
+header::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: #ffeb3b;
+  position: absolute;
+  width: 100%;
+  left: 5rem;
+}
+
+header .logo {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  column-gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+header .logo img {
+  width: 100%;
+  margin: auto;
+}
+
+header h1 {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2.4rem;
+  margin: auto 0;
+}
+
+header .leftside {
+  text-align: right;
+}
