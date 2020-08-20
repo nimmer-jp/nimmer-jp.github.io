@@ -3,13 +3,20 @@ version: '3.2'
 services:
   builder:
     container_name: nimmer-jp_website-builder
-    build: ./src/pubs
+    build:
+      context: ./resources
+      dockerfile: Dockerfile.build
     volumes:
       - ./docs:/app/build
+      - ../src:/app/src
+      - ../public:/app/public
     restart: 'no'
   devenv:
     container_name: nimmer-jp_website-dev_env
-    build: ./src/devs
+    build:
+      context: ./resources
+      dockerfile: Dockerfile.dev
     volumes:
-      - ./src/pubs/src:/app/src
+      - ../src:/app/src
+      - ../public:/app/public
     restart: always
