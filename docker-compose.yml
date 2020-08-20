@@ -8,8 +8,8 @@ services:
       dockerfile: Dockerfile.build
     volumes:
       - ./docs:/app/build
-      - ../src:/app/src
-      - ../public:/app/public
+      - ./src:/app/src
+      - ./public:/app/public
     restart: 'no'
   devenv:
     container_name: nimmer-jp_website-dev_env
@@ -17,8 +17,8 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     volumes:
-      - ../src:/app/src
-      - ../public:/app/public
+      - ./src:/app/src
+      - ./public:/app/public
     ports:
       - 8888:8080
     restart: always
