@@ -85,30 +85,30 @@ module.exports = {
     },
   },
   plugins: [
-    new CopyPlugin({ patterns: [path.join(__dirname, 'public')] }),
-    new webpack.EnvironmentPlugin({
-      NODE_ENV: 'development',
-      DEBUG: false,
-    }),
-    new HtmlPlugin({
-      inlineSource: '.js$',
-      template: path.join(__dirname, 'public/index.html'),
-      inject: true,
-      minify: is_prod
-        ? {
-            removeComments: true,
-            collapseWhitespace: true,
-            removeRedundantAttributes: true,
-            useShortDoctype: true,
-            removeEmptyAttributes: true,
-            removeStyleLinkTypeAttributes: true,
-            keepClosingSlash: true,
-            minifyJS: true,
-            minifyCSS: true,
-            minifyURLs: true,
-          }
-        : undefined,
-    }),
-    !is_prod && new webpack.HotModuleReplacementPlugin(),
+    // new CopyPlugin({ patterns: [path.join(__dirname, 'public')] }),
+    // new webpack.EnvironmentPlugin({
+    //   NODE_ENV: 'development',
+    //   DEBUG: false,
+    // }),
+    // new HtmlPlugin({
+    //   inlineSource: '.js$',
+    //   template: path.join(__dirname, 'public/index.html'),
+    //   inject: true,
+    //   minify: is_prod
+    //     ? {
+    //         removeComments: true,
+    //         collapseWhitespace: true,
+    //         removeRedundantAttributes: true,
+    //         useShortDoctype: true,
+    //         removeEmptyAttributes: true,
+    //         removeStyleLinkTypeAttributes: true,
+    //         keepClosingSlash: true,
+    //         minifyJS: true,
+    //         minifyCSS: true,
+    //         minifyURLs: true,
+    //       }
+    //     : undefined,
+    // }),
+    // !is_prod && new webpack.HotModuleReplacementPlugin(),
   ],
 };
