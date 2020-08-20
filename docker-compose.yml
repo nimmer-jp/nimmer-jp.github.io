@@ -4,7 +4,7 @@ services:
   builder:
     container_name: nimmer-jp_website-builder
     build:
-      context: ./resources
+      context: .
       dockerfile: Dockerfile.build
     volumes:
       - ./docs:/app/build
@@ -14,9 +14,11 @@ services:
   devenv:
     container_name: nimmer-jp_website-dev_env
     build:
-      context: ./resources
+      context: .
       dockerfile: Dockerfile.dev
     volumes:
       - ../src:/app/src
       - ../public:/app/public
+    ports:
+      - 8888:8080
     restart: always
