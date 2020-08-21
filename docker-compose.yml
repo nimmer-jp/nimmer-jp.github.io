@@ -5,20 +5,22 @@ services:
     container_name: nimmer-jp_website-builder
     build:
       context: .
-      dockerfile: Dockerfile.build
+      dockerfile: Dockerfile
     volumes:
       - ./docs:/app/build
       - ./src:/app/src
       - ./public:/app/public
     restart: 'no'
+    command: ["run", "build"]
   devenv:
     container_name: nimmer-jp_website-dev_env
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     volumes:
       - ./src:/app/src
       - ./public:/app/public
     ports:
       - 9000:9000
     restart: always
+    command: ["start"]
