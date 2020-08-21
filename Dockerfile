@@ -9,4 +9,4 @@ COPY ./.eslintrc.json /app/.eslintrc.json
 COPY ./.prettierrc /app/.prettierrc
 
 RUN npm install
-CMD npm run build
+ENTRYPOINT ["npm"]
