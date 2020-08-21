@@ -4,6 +4,8 @@
 
 Nimmer JPの暫定ホームページ用レポジトリ
 
+https://www.nimmer.jp/
+
 == 開発者向け
 
 === 前提条件
@@ -17,8 +19,7 @@ Nimmer JPの暫定ホームページ用レポジトリ
 
 === ビルド方法
 
-webpackでサイトを生成します。
-実行結果は docs ディレクトリ配下に出力されます。
+webpackでサイトHTMLを生成します。
 
 [source,bash]
 ----
