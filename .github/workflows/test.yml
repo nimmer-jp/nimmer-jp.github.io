@@ -2,7 +2,16 @@ name: test
 
 on:
   push:
-  pull_request:
+    paths:
+      - 'src/**'
+      - package.json
+      - package-lock.json
+      - tsconfig.json
+      - webpack.config.json
+      - Dockerfile
+      - docker-compose.yml
+      - .eslintrc.json
+      - '.github/workflows/**'
 
 env:
   node-version: '14'
@@ -20,9 +29,26 @@ jobs:
     steps:
       - run: echo "not contains '[skip ci]'"
 
-  build:
+  lint:
     runs-on: ubuntu-latest
     needs: before
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.node-version }}
+      - run: npm i --save
+      - run: npm run lint
+
+  # test:
+  #   runs-on: ubuntu-latest
+  #   needs: setup
+  #   steps:
+  #     - run: npm run test
+
+  build:
+    runs-on: ubuntu-latest
+    needs: lint # test
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
