@@ -40,4 +40,5 @@ jobs:
           - devenv
     steps:
       - uses: actions/checkout@v2
+      - run: docker-compose pull ${{ matrix.service }}
       - run: docker-compose build ${{ matrix.service }}
