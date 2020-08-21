@@ -12,7 +12,6 @@
       "ES6",
       "ESNext"
     ],
-    "typeRoots": ["./extras"],
     "target": "es6",
     "moduleResolution": "node",
     "resolveJsonModule": true,
