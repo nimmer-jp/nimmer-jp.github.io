@@ -2,8 +2,12 @@ name: gh-pages
 
 on:
   push:
-    # branches:
-    #   - master
+    branches:
+      - master
+    paths-ignore:
+      - 'LICENSE'
+      - 'README*'
+      - '.vscode/*'
 
 env:
   node-version: '14'
