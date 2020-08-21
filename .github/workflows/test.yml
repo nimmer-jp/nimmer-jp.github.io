@@ -3,7 +3,7 @@ name: test
 on:
   push:
     paths:
-      - src
+      - 'src/**'
       - package.json
       - package-lock.json
       - tsconfig.json
@@ -11,7 +11,7 @@ on:
       - Dockerfile
       - docker-compose.yml
       - .eslintrc.json
-      - '.github/workflows'
+      - '.github/workflows/**'
 
 env:
   node-version: '14'
