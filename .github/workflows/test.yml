@@ -6,6 +6,7 @@ on:
 
 env:
   node-version: '14'
+  DOCKER_BUILDKIT: 1
 
 jobs:
   skip:
