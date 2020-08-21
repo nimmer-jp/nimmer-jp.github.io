@@ -29,7 +29,7 @@ jobs:
     steps:
       - run: echo "not contains '[skip ci]'"
 
-  setup:
+  lint:
     runs-on: ubuntu-latest
     needs: before
     steps:
@@ -38,11 +38,6 @@ jobs:
         with:
           node-version: ${{ env.node-version }}
       - run: npm i --save
-
-  lint:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
       - run: npm run lint
 
   # test:
@@ -55,6 +50,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: lint # test
     steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.node-version }}
+      - run: npm i --save
       - run: npm run build
 
   docker-build:
