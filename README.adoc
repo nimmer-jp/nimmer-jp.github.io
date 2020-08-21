@@ -1,2 +1,50 @@
-# nimmer-jp.github.io
+= nimmer-jp.github.io
+:toc: left
+:sectnums:
+
 Nimmer JPの暫定ホームページ用レポジトリ
+
+== 開発者向け
+
+=== 前提条件
+
+以下のツールが必要です。
+
+. docker
+. docker-compose
+. node (v14)
+.. dockerがあればnodeがなくてもビルドだけは可能
+
+=== ビルド方法
+
+webpackでサイトを生成します。
+実行結果は docs ディレクトリ配下に出力されます。
+
+[source,bash]
+----
+docker-compose build
+docker-compose run builder
+----
+
+直接ホストPCのnodeでビルドする際は以下。
+
+[source,bash]
+----
+npm run build
+----
+
+=== サーバ起動方法
+
+ローカルサーバを起動します。
+
+[source,bash]
+----
+docker-compose build
+docker-compose run devenv
+----
+
+== サイトのリリース手順
+
+`master` ブランチが更新されるとCIで自動でGitHub Pagesにリリースされます。
+詳細は https://github.com/nimmer-jp/www.nimmer.jp/blob/master/.github/workflows/gh-pages.yml[.github/workflows/gh-pages.yml] を参照。
+
