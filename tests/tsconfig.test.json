@@ -21,7 +21,7 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "baseUrl": ".",
     "sourceMap": true,
     "noImplicitAny": true
