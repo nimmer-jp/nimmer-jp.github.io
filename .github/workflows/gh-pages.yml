@@ -11,7 +11,7 @@ on:
 
 env:
   node-version: '14'
-  deploy-dir: './docs'
+  deploy-dir: './build'
 
 jobs:
   pages:
