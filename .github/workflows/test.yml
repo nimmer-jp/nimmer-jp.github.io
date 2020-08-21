@@ -2,17 +2,15 @@ name: test
 
 on:
   push:
-    paths:
-      - 'src/**'
-      - 'tests/**'
-      - package.json
-      - package-lock.json
-      - tsconfig.json
-      - webpack.config.json
-      - Dockerfile
-      - docker-compose.yml
-      - .eslintrc.json
-      - '.github/workflows/**'
+    paths-ignore:
+      - 'LICENSE'
+      - 'README*'
+      - '.vscode/*'
+  pull_request:
+    paths-ignore:
+      - 'LICENSE'
+      - 'README*'
+      - '.vscode/*'
 
 env:
   node-version: '14'
