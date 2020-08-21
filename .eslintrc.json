@@ -41,6 +41,8 @@
         "exceptions": ["_", "i"]
       }
     ],
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
     "new-cap": "warn",
     "eqeqeq": ["error", "always"],
     "no-else-return": [
@@ -69,7 +71,10 @@
     "jsx-a11y/click-events-have-key-events": "off",
     "jsx-a11y/no-static-element-interactions": "off",
     "linebreak-style": "off",
-    "import/extensions": "off",
-    "operator-linebreak": ["error", "before"]
+    "operator-linebreak": ["error", "before"],
+    "react/jsx-filename-extension": [
+      "error",
+      { "extensions": [".jsx", ".tsx"] }
+    ]
   }
 }
