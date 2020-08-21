@@ -1,0 +1,26 @@
+name: gh-pages
+
+on:
+  push:
+    # branches:
+    #   - master
+
+env:
+  node-version: '14'
+  deploy-dir: './docs'
+
+jobs:
+  pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.node-version }}
+      - run: npm i --save
+      - run: npm run build
+      - name: Deploy documents
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{ env.deploy-dir }}
