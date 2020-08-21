@@ -2,7 +2,15 @@ name: test
 
 on:
   push:
-  pull_request:
+    paths:
+      - src
+      - package.json
+      - package-lock.json
+      - tsconfig.json
+      - webpack.config.json
+      - Dockerfile
+      - docker-compose.yml
+      - .eslintrc.json
 
 env:
   node-version: '14'
@@ -20,7 +28,7 @@ jobs:
     steps:
       - run: echo "not contains '[skip ci]'"
 
-  build:
+  setup:
     runs-on: ubuntu-latest
     needs: before
     steps:
@@ -29,6 +37,23 @@ jobs:
         with:
           node-version: ${{ env.node-version }}
       - run: npm i --save
+
+  lint:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - run: npm run lint
+
+  # test:
+  #   runs-on: ubuntu-latest
+  #   needs: setup
+  #   steps:
+  #     - run: npm run test
+
+  build:
+    runs-on: ubuntu-latest
+    needs: lint # test
+    steps:
       - run: npm run build
 
   docker-build:
