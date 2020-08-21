@@ -11,6 +11,7 @@ on:
       - Dockerfile
       - docker-compose.yml
       - .eslintrc.json
+      - '.github/workflows'
 
 env:
   node-version: '14'
