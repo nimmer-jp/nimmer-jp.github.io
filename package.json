@@ -21,13 +21,8 @@
   "homepage": "https://github.com/nimmer-jp/www.nimmer.jp#readme",
   "husky": {
     "hooks": {
-      "pre-commit": "lint-pre-commit"
+      "pre-commit": "eslint \"./src/**/*.js\" \"./src/**/*.jsx\" \"./src/**/*.ts\" \"./src/**/*.tsx\" --no-error-on-unmatched-pattern"
     }
-  },
-  "lint-pre-commit": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint \"./src/**/*.js\" \"./src/**/*.jsx\" \"./src/**/*.ts\" \"./src/**/*.tsx\" --no-error-on-unmatched-pattern"
-    ]
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
