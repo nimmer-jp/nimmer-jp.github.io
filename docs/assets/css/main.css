@@ -11,15 +11,19 @@ body {
 
 main {
   min-height: 100vh;
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  column-gap: 0.8rem;
+  padding: 0.8rem 1.2rem;
 }
 
 a {
-  color: #c8b900;
+  color: #e5ff00;
   text-decoration: none;
 }
 
 a:hover {
-  color: #ffff72;
+  color: #d0ff72;
 }
 
 a:visited {

@@ -34,27 +34,33 @@ footer .bottom {
 
 footer .groups {
   display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 0.5rem;
   font-size: 0.8rem;
+}
+
+footer .groups .right,
+footer .groups .left {
+  display: grid;
 }
 
 footer .groups .item {
   /*border-bottom: solid 1px #ffeb3b;*/
   height: fit-content;
+  position: relative;
 }
 
 footer .groups .item::before {
   content: attr(data-title);
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bolder;
   margin-right: 0.4rem;
-}
-
-footer .groups .item.media {
-  display: flex;
-  flex-flow: row nowrap;
+  display: block;
+  margin-bottom: 0.1rem;
 }
 
 footer .groups .item.media p {
+  float: left;
   margin: auto 0;
 }
 

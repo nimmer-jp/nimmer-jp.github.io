@@ -1,0 +1,21 @@
+aside {
+}
+
+aside .group {
+}
+
+aside .group .title {
+  font-size: 1.1rem;
+  border-bottom: solid 2px #ffeb3b;
+  display: block;
+}
+
+aside .group .items {
+  list-style: none;
+  padding-left: 0.8rem;
+}
+
+aside .group .items li {
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+}
