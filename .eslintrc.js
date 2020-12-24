@@ -1,32 +1,34 @@
 module.exports = {
+  root: true,
   parserOptions: {
     ecmaVersion: 2019,
-    sourceType: 'module'
+    sourceType: 'module',
+    project: ['.eslintrc.js', 'rollup.config.js', './tsconfig.json'],
   },
   env: {
     es6: true,
     browser: true,
-    node: true
+    node: true,
   },
+  parser: '@typescript-eslint/parser',
   extends: [
-    'eslint:recommended'
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:eslint-comments/recommended',
   ],
-  plugins: [
-    'svelte3'
-  ],
-  ignorePatterns: [
-    'public/build/'
-  ],
+  plugins: ['@typescript-eslint', 'svelte3'],
+  ignorePatterns: ['public/build/'],
   overrides: [
     {
       files: ['**/*.svelte'],
-      processor: 'svelte3/svelte3'
-    }
+      processor: 'svelte3/svelte3',
+    },
   ],
   rules: {
-    'no-var': 'error'
+    'no-var': 'error',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
   settings: {
     // Nothing
-  }
-}
+  },
+};
