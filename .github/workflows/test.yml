@@ -41,15 +41,15 @@ jobs:
       - run: npm run test
       - run: npm run build
 
-  docker-build:
-    runs-on: ubuntu-latest
-    needs: before
-    strategy:
-      matrix:
-        service:
-          - builder
-          - devenv
-    steps:
-      - uses: actions/checkout@v2
-      - run: docker-compose pull ${{ matrix.service }}
-      - run: docker-compose build ${{ matrix.service }}
+#  docker-build:
+#    runs-on: ubuntu-latest
+#    needs: before
+#    strategy:
+#      matrix:
+#        service:
+#          - builder
+#          - devenv
+#    steps:
+#      - uses: actions/checkout@v2
+#      - run: docker-compose pull ${{ matrix.service }}
+#      - run: docker-compose build ${{ matrix.service }}

@@ -7,7 +7,9 @@
     "build": "sapper build --legacy",
     "export": "sapper export --legacy",
     "start": "node __sapper__/build",
-    "validate": "svelte-check --ignore src/node_modules/@sapper"
+    "validate": "svelte-check --ignore src/node_modules/@sapper",
+    "lint": "eslint . --ext .js,.svelte --fix",
+    "test": "echo \"all tests are passed.\""
   },
   "dependencies": {
     "compression": "^1.7.1",
@@ -31,6 +33,12 @@
     "@types/node": "^14.11.1",
     "@types/polka": "^0.5.1",
     "autoprefixer": "^10.1.0",
+    "eslint": "^7.16.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "eslint-plugin-svelte3": "^3.0.0",
     "node-sass": "^5.0.0",
     "postcss": "^8.2.1",
     "rollup": "^2.3.4",
