@@ -11,7 +11,7 @@ on:
 
 env:
   node-version: '14'
-  deploy-dir: './build'
+  deploy-dir: './__sapper__/build'
 
 jobs:
   pages:
