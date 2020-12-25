@@ -11,7 +11,7 @@ on:
 
 env:
   node-version: '14'
-  deploy-dir: './__sapper__/build'
+  deploy-dir: './__sapper__/export'
 
 jobs:
   pages:
@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: ${{ env.node-version }}
       - run: npm i --save
-      - run: npm run build
+      - run: npm run export
       - name: Deploy documents
         uses: peaceiris/actions-gh-pages@v3
         with:
