@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% seo %}
+    <link
+      rel="stylesheet prefetch"
+      href="{{ "/assets/css/main.css?v=" | append: site.github.build_revision | relative_url }}"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet prefetch"
+      href="{{ "/assets/css/header.css?v=" | append: site.github.build_revision | relative_url }}"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet prefetch"
+      href="{{ "/assets/css/footer.css?v=" | append: site.github.build_revision | relative_url }}"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet prefetch"
+      href="{{ "/assets/css/sidemenu.css?v=" | append: site.github.build_revision | relative_url }}"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet prefetch"
+      href="{{ "/assets/css/articles.css?v=" | append: site.github.build_revision | relative_url }}"
+      type="text/css"
+    />
+    <meta name="theme-color" content="#263238" />
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <div class="logo">
+          <img src="assets/img/logo.svg" alt="Nim logo" />
+          <h1>Nimmer Japan</h1>
+        </div>
+        <div class="leftside"></div>
+      </header>
+      <main>
+        <aside>
+          <div class="group">
+            <span class="title">イベント</span>
+            <ul class="items">
+              {% if site.data.info.events %}
+                {% for event in site.data.info.events %}
+                  <li>
+                    <time datetime="{{ event.date }}">
+                      <a href="{{ event.url }}">{{ event.name }}}</a>
+                    </time>
+                  </li>
+                {% endfor %}
+              {% else %}
+                <li>
+                  <a>現在のところイベントの予定はありません</a>
+                </li>
+              {% endif %}
+            </ul>
+          </div>
+          <div class="group">
+            <span class="title">フォーラム</span>
+            <ul class="items">
+              {% for forum in site.data.info.forum %}
+                <li><a href="{{ forum.url }}">{{ forum.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="group">
+            <span class="title">お知らせ</span>
+            <ul class="items">
+              {% if site.data.info.notifications %}
+                {% for notification in site.data.info.notifications %}
+                  <li><a href="{{ notification.url }}">{{ notification.title }}</a></li>
+                {% endfor %}
+              {% else %}
+                <li>
+                  <a>現在のところお知らせはありません</a>
+                </li>
+              {% endif %}
+            </ul>
+          </div>
+          <div class="group">
+            <span class="title">最近の投稿</span>
+            <ul class="items">
+              {% if site.posts %}
+                {% for post in site.posts %}
+                  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                {% endfor %}
+              {% else %}
+                <li>
+                  <a>投稿はありません</a>
+                </li>
+              {% endif %}
+            </ul>
+          </div>
+        </aside>
+        <div class="articles" role="document">
+          {{ content }}
+        </div>
+      </main>
+      <footer>
+        <div class="logo">
+          <img src="assets/img/logo.svg" alt="Nim logo" />
+          <p>Nimmer Japan</p>
+        </div>
+        <div class="groups">
+          <div class="left">
+            <div class="item media" data-title="メディア">
+              <p>
+                Twitter: <a href="https://twitter.com/nimmerjp">@nimmerjp</a>
+              </p>
+              <p>
+                GitHub: <a href="https://github.com/nimmer-jp">@nimmer-jp</a>
+              </p>
+              <p>
+                Slack: <a href="https://nim-in-japan.slack.com">Nim in Japan</a>
+              </p>
+              <p>
+                Email:
+                <a href="mailto:nimmer.jp@gmail.com">nimmer.jp@gmail.com</a>
+              </p>
+            </div>
+          </div>
+          <div class="right">
+            <div class="item media" data-title="Nim">
+              <p>
+                <a href="https://nim-lang.org">Nim 公式</a>
+              </p>
+              <p>
+                <a href=".">Nimについてもっと知る</a>
+              </p>
+              <p>
+                <a href=".">The Right Way of Nim</a>
+              </p>
+            </div>
+            <div class="item media" data-title="このサイトについて">
+              <p>
+                <a href=".">免責事項</a>
+              </p>
+              <p>
+                <a href=".">Cookieについて</a>
+              </p>
+              <p>
+                <a href=".">個人情報保護方針</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <p class="bottom">
+          ©2020 Nimmer Japan. / 'Nim logo' ©Nim developers (Licensed under
+          <a href="https://creativecommons.org/licenses/by/3.0/legalcode"
+            >CC BY 3.0</a
+          >)
+        </p>
+      </footer>
+    </div>
+    {% endif %}
+  </body>
+</html>

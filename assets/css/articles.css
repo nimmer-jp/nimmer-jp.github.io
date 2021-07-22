@@ -1,0 +1,10 @@
+main .articles {
+}
+
+main .articles article h2 {
+  border-bottom: solid 2px #ffeb3b;
+}
+
+main .articles article .body {
+  padding-left: 1rem;
+}

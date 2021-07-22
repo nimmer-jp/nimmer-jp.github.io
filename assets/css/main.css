@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+.app {
+  background: #263238;
+  color: #eceff1;
+  padding: 0.5rem;
+}
+
+main {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  column-gap: 0.8rem;
+  padding: 0.8rem 1.2rem;
+}
+
+a {
+  color: #e5ff00;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #d0ff72;
+}
+
+a:visited {
+  color: #ffce72;
+}
