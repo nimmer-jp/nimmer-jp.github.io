@@ -11,26 +11,6 @@
       href="{{ "/assets/css/main.css?v=" | append: site.github.build_revision | relative_url }}"
       type="text/css"
     />
-    <link
-      rel="stylesheet prefetch"
-      href="{{ "/assets/css/header.css?v=" | append: site.github.build_revision | relative_url }}"
-      type="text/css"
-    />
-    <link
-      rel="stylesheet prefetch"
-      href="{{ "/assets/css/footer.css?v=" | append: site.github.build_revision | relative_url }}"
-      type="text/css"
-    />
-    <link
-      rel="stylesheet prefetch"
-      href="{{ "/assets/css/sidemenu.css?v=" | append: site.github.build_revision | relative_url }}"
-      type="text/css"
-    />
-    <link
-      rel="stylesheet prefetch"
-      href="{{ "/assets/css/articles.css?v=" | append: site.github.build_revision | relative_url }}"
-      type="text/css"
-    />
     <meta name="theme-color" content="#263238" />
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -68,7 +48,7 @@
           <div class="group">
             <span class="title">フォーラム</span>
             <ul class="items">
-              {% for forum in site.data.info.forum %}
+              {% for forum in site.data.info.forums %}
                 <li><a href="{{ forum.url }}">{{ forum.title }}</a></li>
               {% endfor %}
             </ul>
